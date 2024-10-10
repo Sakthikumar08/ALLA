@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slide Sign In / Sign Up Form</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      body {
+    align-items: center;
+    background-color: var(--white);
+    background: url(images/loginbk.jpg);
+    background-blend-mode: darken;
+    background-color: rgb(0,0,0,0.6);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: grid;
+    height: 100vh;
+    place-items: center;
+  }
+  .overlay {
+    background-color: var(--lightblue);
+    background: url(images/loginbk.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    left: -100%;
+    position: relative;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+    width: 200%;
+  }
+    </style>
+  </head>
+  <body>
+    
+    <div class="container right-panel-active">
+     
+      <div class="container__form container--signup">
+        <form action="#" class="form" id="form1">
+          <h2 class="form__title">SIGN UP</h2>
+          <input type="text" placeholder="User" class="input" required />
+          <input type="email" placeholder="Email" class="input" required />
+          <input type="password" placeholder="Password" class="input" required />
+          <input type="password" placeholder="Confirm Password" class="input" required/>
+       
+
+          
+          <button class="btn" >Sign Up</button>
+        </form>
+      </div>
+
+      
+      <div class="container__form container--signin">
+        <form action="#" class="form" id="form2">
+          <h2 class="form__title">LOGIN</h2>
+          <input type="email" placeholder="Email" class="input" required/>
+          <input type="password" placeholder="Password" class="input" required />
+        
+          <a href="#" class="link">Forgot your password?</a>
+          
+          <button class="btn" >Login</button>
+        </form>
+      </div>
+
+      
+      <div class="container__overlay">
+        <div class="overlay">
+          <div class="overlay__panel overlay--left">
+            <button class="btn" id="signIn">LOGIN</button>
+          </div>
+          <div class="overlay__panel overlay--right">
+            <button class="btn" id="signUp">SIGN UP</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const signInBtn = document.getElementById('signIn');
+const signUpBtn = document.getElementById('signUp');
+const fistForm = document.getElementById('form1');
+const secondForm = document.getElementById('form2');
+const container = document.querySelector('.container');
+
+signInBtn.addEventListener('click', () => {
+  container.classList.remove('right-panel-active');
+});
+
+signUpBtn.addEventListener('click', () => {
+  container.classList.add('right-panel-active');
+});
+
+fistForm.addEventListener('submit', (e) => e.preventDefault());
+secondForm.addEventListener('submit', (e) => e.preventDefault());
+    </script>
+  </body>
+</html>

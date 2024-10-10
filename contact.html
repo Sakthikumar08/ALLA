@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - ALLA</title>
+    <style>
+        /* Navbar styles */
+        * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Style */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Navbar Styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0367a6;
+  padding: 15px 30px;
+  color: white;
+}
+
+.navbar-logo {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+
+.navbar-links a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 16px;
+}
+
+.navbar-links a:hover {
+  text-decoration: underline;
+}
+
+
+        /* Contact Section */
+        .contact-section {
+            padding: 50px;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        .contact-section h1 {
+            font-size: 36px;
+            color: #0367a6;
+            margin-bottom: 20px;
+        }
+
+        .contact-section p {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 40px;
+        }
+
+        .contact-info div {
+            text-align: left;
+        }
+
+        .contact-info h3 {
+            font-size: 22px;
+            color: #0367a6;
+            margin-bottom: 10px;
+        }
+
+        .contact-info p {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .contact-form {
+            background-color: white;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .contact-form h2 {
+            color: #0367a6;
+            margin-bottom: 20px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .contact-form button {
+            background-color: #0367a6;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .contact-form button:hover {
+            background-color: #025b92;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <h1 class="logo">ALLA</h1>
+            <p>Advancing Local Leadership And Ambitions</p>
+        </div>
+        <div class="navbar-links">
+            <a href="index.html">Home</a>
+            <a href="project.html">Project</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+           
+        </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <h1>Contact Us</h1>
+        <p>We’re here to help! Reach out to us with any questions, feedback, or inquiries you may have about ALLA. Our team is always ready to assist you.</p>
+
+        <!-- Contact Info -->
+        <div class="contact-info">
+            <div>
+                <h3>Email Us</h3>
+                <p>support@alla.com</p>
+            </div>
+            <div>
+                <h3>Call Us</h3>
+                <p>+1 234 567 890</p>
+            </div>
+            <div>
+                <h3>Visit Us</h3>
+                <p>123 Leadership Ave,<br>Innovation City, USA</p>
+            </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form">
+            <h2>Send Us a Message</h2>
+            <form>
+                <!-- Name Field -->
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+                <!-- Email Field -->
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+                <!-- Subject Field -->
+                <input type="text" id="subject" name="subject" placeholder="Subject" required>
+
+                <!-- Message Field -->
+                <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+
+                <!-- Submit Button -->
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="enter.css">
+    <title>Entrepreneur Project Form</title>
+    <style>
+        body{
+            background-image: url(images/hero-img.png);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Submit Your Project</h1>
+        
+        <form id="projectForm">
+            <h2>Enter Your Project Details</h2>
+
+            <!-- 1. Project Name -->
+            <input type="text" id="projectName" placeholder="Project Name" required />
+
+            <!-- 2. Entrepreneur's Name -->
+            <input type="text" id="entrepreneurName" placeholder="Your Name" required />
+
+            <!-- 3. Company Name -->
+            <input type="text" id="companyName" placeholder="Company Name" required />
+
+            <!-- 4. Email -->
+            <input type="email" id="email" placeholder="Email" required />
+
+            <!-- 5. Phone Number -->
+            <input type="text" id="phone" placeholder="Phone Number" required />
+
+            <!-- 6. Industry -->
+            <input type="text" id="industry" placeholder="Industry" required />
+
+            <!-- 7. Project Stage -->
+            <input type="text" id="projectStage" placeholder="Project Stage (e.g., Idea, Prototype, Market)" required />
+
+            <!-- 8. Target Market -->
+            <input type="text" id="targetMarket" placeholder="Target Market" required />
+
+            <!-- 9. Competitors -->
+            <input type="text" id="competitors" placeholder="Competitors" required />
+
+            <!-- 10. Funding Amount Needed -->
+            <input type="text" id="fundingNeeded" placeholder="Funding Amount Needed" required />
+
+            <textarea id="description" placeholder="Project Description" required></textarea>
+
+            <textarea id="businessPlan" placeholder="Brief Business Plan" required></textarea>
+
+            <input type="text" id="website" placeholder="Website (if any)" />
+
+            <button type="submit" href="index.html">Submit Project</button>
+        </form>
+
+        <h2>All Submitted Projects</h2>
+        <ul id="projectList">
+            <li>No projects submitted yet.</li>
+        </ul>
+    </div>
+
+    <script>
+        document.getElementById('projectForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const projectName = document.getElementById('projectName').value;
+    const entrepreneurName = document.getElementById('entrepreneurName').value;
+    const companyName = document.getElementById('companyName').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const industry = document.getElementById('industry').value;
+    const projectStage = document.getElementById('projectStage').value;
+    const targetMarket = document.getElementById('targetMarket').value;
+    const competitors = document.getElementById('competitors').value;
+    const fundingNeeded = document.getElementById('fundingNeeded').value;
+    const description = document.getElementById('description').value;
+    const businessPlan = document.getElementById('businessPlan').value;
+    const website = document.getElementById('website').value || 'N/A';
+
+    if (!projectName || !entrepreneurName || !companyName || !email || !phone || !industry || !projectStage || !targetMarket || !competitors || !fundingNeeded || !description || !businessPlan) {
+        alert('Please fill in all required fields!');
+        return;
+    }
+
+    const projectList = document.getElementById('projectList');
+    
+    if (projectList.children[0] && projectList.children[0].textContent === 'No projects submitted yet.') {
+        projectList.innerHTML = '';
+    }
+
+    const newProject = document.createElement('li');
+    newProject.innerHTML = `
+        <h3>${projectName}</h3>
+        <p><strong>Entrepreneur:</strong> ${entrepreneurName}</p>
+        <p><strong>Company:</strong> ${companyName}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>Industry:</strong> ${industry}</p>
+        <p><strong>Project Stage:</strong> ${projectStage}</p>
+        <p><strong>Target Market:</strong> ${targetMarket}</p>
+        <p><strong>Competitors:</strong> ${competitors}</p>
+        <p><strong>Funding Needed:</strong> ${fundingNeeded}</p>
+        <p><strong>Description:</strong> ${description}</p>
+        <p><strong>Business Plan:</strong> ${businessPlan}</p>
+        <p><strong>Website:</strong> ${website}</p>
+    `;
+
+    projectList.appendChild(newProject);
+
+    document.getElementById('projectForm').reset();
+});
+
+    </script>
+</body>
+</html>

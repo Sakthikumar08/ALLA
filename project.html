@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrepreneur Projects</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Style */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Navbar Styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0367a6;
+  padding: 15px 30px;
+  color: white;
+}
+
+.navbar-logo {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+
+.navbar-links a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 16px;
+}
+
+.navbar-links a:hover {
+  text-decoration: underline;
+}
+
+        /*---project----*/
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+}
+
+.card h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.card button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 60%;
+  background-color: white;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  z-index: 1000;
+  border-radius: 10px;
+  overflow-y: auto;
+}
+
+.popup h2 {
+  margin-top: 0;
+}
+
+.popup p {
+  background-color: #f1f1f1;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.popup button {
+  background-color: red;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+  float: right;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <h1 class="logo">ALLA</h1>
+            <p>Advancing Local Leadership And Ambitions</p>
+        </div>
+        <div class="navbar-links">
+            <a href="index.html">Home</a>
+            <a href="#">Project</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+            
+        </div>
+    </nav>
+
+    <!-- Card Container -->
+    <div class="card-container">
+        <!-- Generating 15 cards -->
+        <!-- Repeat this card structure with different project details -->
+        <div class="card">
+            <h3>Project: AI-Powered Healthcare</h3>
+            <button class="viewButton" data-project="AI-Powered Healthcare">View Details</button>
+        </div>
+
+        <div class="card">
+            <h3>Project: Sustainable Agriculture Solutions</h3>
+            <button class="viewButton" data-project="Sustainable Agriculture Solutions">View Details</button>
+        </div>
+
+        <div class="card">
+            <h3>Project: Eco-Friendly Packaging</h3>
+            <button class="viewButton" data-project="Eco-Friendly Packaging">View Details</button>
+        </div>
+
+        <!-- Add more cards similarly -->
+        <!-- You can create 15 cards with different ideas -->
+    </div>
+
+    <!-- Popup Box for Viewing Details -->
+    <div class="popup" id="popupBox">
+        <button class="close-popup" id="closePopup">X</button>
+        <h2 id="popupTitle">Project Details</h2>
+
+        <!-- View-only Details (will be dynamically filled) -->
+        <p><strong>Project Name:</strong> <span id="projectName"></span></p>
+        <p><strong>Entrepreneur's Name:</strong> John Doe</p>
+        <p><strong>Company Name:</strong> InnovateX</p>
+        <p><strong>Email:</strong> johndoe@innovatex.com</p>
+        <p><strong>Phone Number:</strong> +1 123 456 7890</p>
+        <p><strong>Industry:</strong> Healthcare</p>
+        <p><strong>Project Stage:</strong> Prototype</p>
+        <p><strong>Target Market:</strong> Global</p>
+        <p><strong>Competitors:</strong> Health AI, MedAssist</p>
+        <p><strong>Funding Amount Needed:</strong> $500,000</p>
+        <p><strong>Project Description:</strong> This project provides AI-powered healthcare solutions that assist in diagnosing and monitoring patient conditions.</p>
+        <p><strong>Business Plan:</strong> We plan to partner with hospitals and health insurance companies to launch the service.</p>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <script>
+        // Get the elements
+        const viewButtons = document.querySelectorAll(".viewButton");
+        const popupBox = document.getElementById("popupBox");
+        const closePopup = document.getElementById("closePopup");
+        const overlay = document.getElementById("overlay");
+        const projectNameSpan = document.getElementById("projectName");
+
+        // Show the popup when any view button is clicked
+        viewButtons.forEach(button => {
+            button.addEventListener("click", function () {
+                const projectName = this.getAttribute('data-project');
+                projectNameSpan.textContent = projectName;
+                popupBox.style.display = "block";
+                overlay.style.display = "block";
+            });
+        });
+
+        // Close the popup when the 'X' button is clicked
+        closePopup.addEventListener("click", function () {
+            popupBox.style.display = "none";
+            overlay.style.display = "none";
+        });
+
+        // Close the popup when clicking outside the popup
+        overlay.addEventListener("click", function () {
+            popupBox.style.display = "none";
+            overlay.style.display = "none";
+        });
+    </script>
+
+</body>
+</html>
